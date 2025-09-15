@@ -1,9 +1,9 @@
-import datetime
+from _datetime import datetime
 
 from src.schemas.db import db
 
 class Task(db.Model):
-    __table_name__ = 'task'
+    __tablename__ = 'task'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     completed = db.Column(db.Boolean, nullable=False, default=False)

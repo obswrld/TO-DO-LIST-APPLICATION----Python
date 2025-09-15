@@ -1,7 +1,7 @@
 from schemas import db
 from src.data.models.user import User
 
-class UserRepository(User):
+class UserRepository:
 
     def get_all_users(self):
         return User.query.all()

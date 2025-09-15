@@ -1,4 +1,5 @@
 from src.schemas.db import db
+from src.data.models.task import Task
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 

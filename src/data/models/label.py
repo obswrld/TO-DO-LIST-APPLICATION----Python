@@ -7,7 +7,7 @@ task_label = db.Table(
 )
 
 class Label(db.Model):
-    __table_name__ = 'label'
+    __tablename__ = 'label'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
