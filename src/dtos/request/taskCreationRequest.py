@@ -1,5 +1,5 @@
 class TaskCreationRequest:
-    def __init__(self, title, description, user_id):
+    def __init__(self, title:str, description:str, user_id:int):
         self.title = title
         self.description = description
         self.user_id = user_id

@@ -1,13 +1,12 @@
-from data.models.label import Label
-from src.data.repositories import label_repo
-
+from src.data.repositories.label_repo import LabelRepository
+from src.data.models.label import Label
 
 class LabelService:
     def __init__(self):
-        self.label_repo = label_repo()
+        self.label_repo = LabelRepository()
 
-    def create_label(self, name, description):
-        label = Label(name=name, description=description)
+    def create_label(self, name):
+        label = Label(name)
         return self.label_repo.get_or_create_label(label)
 
     def get_all_labels(self):

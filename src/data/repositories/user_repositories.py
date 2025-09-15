@@ -1,18 +1,22 @@
-from schemas import db
+from src.schemas.extensions import db
 from src.data.models.user import User
 
 class UserRepository:
 
-    def get_all_users(self):
+    @staticmethod
+    def get_all_users():
         return User.query.all()
 
+    @staticmethod
     def get_user_by_id(self, user_id):
         return User.query.get(user_id)
 
+    @staticmethod
     def get_user_by_username(self, username):
         return User.query.filter_by(username=username).first()
 
-    def save_user(self, user):
+    @staticmethod
+    def save_user(user):
         db.session.add(user)
         try:
             db.session.commit()
@@ -21,7 +25,8 @@ class UserRepository:
             raise e
         return user
 
-    def update_user(self, user_id, updated_data):
+    @staticmethod
+    def update_user(user_id, updated_data):
         user = User.query.get(user_id)
         if user:
             for key, value in updated_data.items():
@@ -34,7 +39,8 @@ class UserRepository:
             return user
         return None
 
-    def delete_user(self, user_id):
+    @staticmethod
+    def delete_user(user_id):
         user = User.query.get(user_id)
         if user:
             db.session.delete(user)

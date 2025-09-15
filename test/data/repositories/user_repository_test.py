@@ -3,7 +3,7 @@ from venv import create
 
 from src.data.models.user import User
 from src.data.repositories.user_repositories import UserRepository
-from src.schemas.db import db
+from src.schemas.extensions import db
 
 class TestUserRepository(unittest.TestCase):
     @classmethod
