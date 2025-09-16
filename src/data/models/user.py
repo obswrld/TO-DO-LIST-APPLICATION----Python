@@ -3,8 +3,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
 class User(db.Model):
-    __tablename__ = 'user'
-
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(80), nullable=False)
@@ -13,6 +11,11 @@ class User(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     tasks = db.relationship('Task', backref='user', lazy=True)
+
+    def __init__(self, username, password, email):
+        self.username = username
+        self.password = password
+        self.email = email
 
 
     def set_password(self, password):

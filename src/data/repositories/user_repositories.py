@@ -8,7 +8,7 @@ class UserRepository:
         return User.query.all()
 
     @staticmethod
-    def get_user_by_id(self, user_id):
+    def get_user_by_id(user_id):
         return User.query.get(user_id)
 
     @staticmethod

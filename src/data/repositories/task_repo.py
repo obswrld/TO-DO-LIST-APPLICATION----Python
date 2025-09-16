@@ -24,7 +24,7 @@ class TaskRepository:
 
     @staticmethod
     def update_task(task_id, updated_data):
-        task = Task.query.get(task_id, updated_data)
+        task = Task.query.get(task_id)
         if task:
             for key, value in updated_data.items():
                 setattr(task, key, value)

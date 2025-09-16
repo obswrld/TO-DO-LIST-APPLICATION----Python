@@ -18,8 +18,8 @@ def create_app():
     db.init_app(app)
 
     app.register_blueprint(label_controller, url_prefix='/label')
-    app.register_blueprint(task_controller, url_prefix='/task')
-    app.register_blueprint(user_controller, url_prefix='/user')
+    app.register_blueprint(task_controller, url_prefix='/api/task')
+    app.register_blueprint(user_controller, url_prefix='/api/user')
 
     @app.before_request
     def create_tables():
